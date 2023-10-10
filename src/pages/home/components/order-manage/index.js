@@ -1,6 +1,6 @@
 import React from 'react'
 import { useSafeState, useAntdTable } from 'ahooks'
-import { Table, Space, Button } from 'antd'
+import { Table, Space, Button, Statistic, message } from 'antd'
 import { useNavigate, useParams } from "react-router-dom";
 import { request } from '../../../../service/api'
 import { orderStatusMap, categoriesOptions } from '../../../../constants'
@@ -25,6 +25,7 @@ export default function Index(props) {
       orderId: row._id,
       status: nextStatus,
     })
+    message.success('操作成功')
     refresh()
   }
 
@@ -32,64 +33,125 @@ export default function Index(props) {
     {
       title: '昵称',
       dataIndex: 'nickname',
+      width: 120
     },
     {
       title: '所属店铺',
       dataIndex: 'belongMerchant',
+      width: 120
     },
     {
       title: '所属菜品',
       dataIndex: 'belongDish',
+      width: 120
     },
     {
       title: '地址',
-      dataIndex: 'address'
+      dataIndex: 'address',
+      width: 120
     },
     {
       title: '电话',
-      dataIndex: 'phone'
+      dataIndex: 'phone',
+      width: 120
     },
     {
       title: '类别',
       dataIndex: 'category',
-      render: (category) => categoriesOptions.find(v => v.value === category)?.label || '-'
+      render: (category) => categoriesOptions.find(v => v.value === category)?.label || '-',
+      width: 120
     },
     {
       title: '订单状态',
       dataIndex: 'status',
-      render: (status) => orderStatusMap[status]
+      render: (status) => orderStatusMap[status],
+      width: 120
     },
     {
       title: '下单时间',
       dataIndex: 'orderTime',
+      width: 150
     },
     {
       title: '付款时间',
       dataIndex: 'paymentTime',
+      width: 150
     },
     {
       title: '商品价格',
       dataIndex: 'price',
+      width: 140,
+      align: 'right',
+      render: (price) => (
+        <Statistic
+          value={price}
+          precision={2}
+          valueStyle={{ color: '#cf1322' }}
+          suffix="￥"
+        />
+      )
     },
     {
       title: '实际付款金额',
       dataIndex: 'realityPrice',
+      width: 140,
+      align: 'right',
+      render: (realityPrice) => (
+        <Statistic
+          value={realityPrice}
+          precision={2}
+          valueStyle={{ color: '#cf1322' }}
+          suffix="￥"
+        />
+      )
     },
     {
       title: '商家优惠金额',
       dataIndex: 'merchantPreferential',
+      width: 140,
+      align: 'right',
+      render: (merchantPreferential) => (
+        <Statistic
+          value={merchantPreferential}
+          precision={2}
+          valueStyle={{ color: '#cf1322' }}
+          suffix="￥"
+        />
+      )
     },
     {
       title: '平台优惠金额',
       dataIndex: 'platformPreferential',
+      width: 140,
+      align: 'right',
+      render: (platformPreferential) => (
+        <Statistic
+          value={platformPreferential}
+          precision={2}
+          valueStyle={{ color: '#cf1322' }}
+          suffix="￥"
+        />
+      )
     },
     {
       title: '实际收入金额',
       dataIndex: 'incomePrice',
+      width: 140,
+      align: 'right',
+      render: (incomePrice) => (
+        <Statistic
+          value={incomePrice}
+          precision={2}
+          valueStyle={{ color: '#cf1322' }}
+          suffix="￥"
+        />
+      )
     },
     {
       title: '操作',
       dataIndex: '_operate',
+      fixed: 'right',
+      width: 130,
       render: (_, row) => {
         return (
           <Space direction="vertical">

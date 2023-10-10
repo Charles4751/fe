@@ -1,6 +1,6 @@
 import React, { useRef } from 'react'
 import { useSafeState, useAntdTable } from 'ahooks'
-import { Layout, Button, Table, Space, message } from 'antd'
+import { Layout, Button, Table, Space, message, Typography } from 'antd'
 import { useNavigate, useParams } from "react-router-dom";
 
 import { AddDish, EditDish } from './components'
@@ -9,6 +9,7 @@ import { EDishStatus } from '../../type'
 import { categoriesOptions, dishStatusMap } from '../../constants'
 
 const { Header, Content } = Layout
+const { Title } = Typography;
 
 const Index = () => {
   const [openCreate, setOpenCreate] = useSafeState(false)
@@ -101,7 +102,10 @@ const Index = () => {
     <>
       <Layout style={{minHeight: '100vh'}}>
         <Header style={{display: 'flex', alignItems: 'center', justifyContent: 'space-between'}}>
-          <Button size="middle" type="primary" onClick={onBack}>返回</Button>
+          <div style={{display: 'flex', alignItems: 'center'}}>
+            <Button size="middle" type="primary" onClick={onBack}>返回</Button>
+            <Title level={4} style={{color: '#fff', margin: '0 0 0 16px'}}>菜品列表</Title>
+          </div>
           <Button size="middle" type="primary" onClick={() => setOpenCreate(true)}>添加</Button>
         </Header>
 

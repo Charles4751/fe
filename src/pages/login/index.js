@@ -27,15 +27,15 @@ const Index = () => {
 
   const handleLogin = async (formValues) => {
     const res = await request('auth/login', formValues)
-    if (res?.userId) {
-      navigate(`/${res.userId}`);
+    if (res?._id) {
+      navigate(`/${res._id}`);
     }
   }
 
   const handleRegister = async (formValues) => {
     const res = await request('auth/register', formValues)
-    if (res?.userId) {
-      navigate(`/${res.userId}`);
+    if (res?._id) {
+      navigate(`/${res._id}`);
     }
   }
 
