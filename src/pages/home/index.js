@@ -5,7 +5,10 @@ import {
   MenuUnfoldOutlined,
   UploadOutlined,
   UserOutlined,
+  LogoutOutlined,
 } from '@ant-design/icons';
+import { useMemoizedFn } from 'ahooks'
+import { useNavigate  } from 'react-router-dom'
 
 import { EMenuItem } from './types'
 import { MenuMap } from './constants'
@@ -18,10 +21,15 @@ const Index = () => {
   const {
     token: { colorBgContainer },
   } = theme.useToken();
+  const navigate = useNavigate();
 
   const onSelect = ({ item, key, keyPath, selectedKeys, domEvent }) => {
     setSelectedKeys(selectedKeys)
   }
+
+  const onLogout = useMemoizedFn(() => {
+    navigate('/login')
+  })
 
   return (
     <Layout style={{minHeight: '100vh'}}>
@@ -46,7 +54,7 @@ const Index = () => {
         />
       </Sider>
       <Layout>
-        <Header style={{ padding: 0, background: colorBgContainer }}>
+        <Header style={{ padding: '0 16px 0 0', background: colorBgContainer, display: 'flex', justifyContent:'space-between', alignItems: 'center' }}>
           <Button
             type="text"
             icon={collapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}
@@ -56,6 +64,16 @@ const Index = () => {
               width: 64,
               height: 64,
             }}
+          />
+          <Button 
+            type="primary" 
+            shape="circle" 
+            icon={<LogoutOutlined />} 
+            style={{
+              width: 32,
+              height: 32,
+            }}
+            onClick={onLogout}
           />
         </Header>
         <Content

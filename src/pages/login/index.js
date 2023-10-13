@@ -9,7 +9,7 @@ import style from './index.module.css'
 const { Title } = Typography;
 
 const initialValuesLogin = {
-  phoneNumber: 13912345678,
+  phoneNumber: 13012345670,
   password: '123456',
 }
 const initialValuesRegister = {

@@ -8,7 +8,7 @@ export function request(url, data) {
         return res.data;
       }
     }).catch(err => {
-      message.error(err?.message || '请求失败')
+      message.error(err?.response?.data?.message || '请求失败')
       return Promise.reject(err);
     })
 }

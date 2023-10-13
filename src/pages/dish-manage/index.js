@@ -110,7 +110,7 @@ const Index = () => {
         </Header>
 
         <Content>
-          <Table rowKey="dishId" columns={columns} { ...tableProps } />
+          <Table rowKey="_id" columns={columns} { ...tableProps } />
         </Content>
       </Layout>
 
