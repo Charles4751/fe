@@ -1,12 +1,15 @@
 # Installation
 
-### `yarn i`
+```bash
+# install package
+$ yarn i
+```
 
 ## Running the app
 
 ```bash
 # watch mode
-$ npm run start
+$ yarn run start
 ```
 
 ## Interface Display
@@ -16,7 +19,7 @@ $ npm run start
   <img src="./readme/login.png" width="100%" alt="Login Page" />
 </p>
 
-### Store Management
+### Shop Management
 <p align="center">
   <img src="./readme/shop-mng.png" width="100%" alt="Shop Management" />
 </p>
