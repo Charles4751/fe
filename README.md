@@ -5,7 +5,7 @@
 ## Interface Display
 
 <p align="center">
-  <img src="./readme/login.png" width="200" alt="Login" />
+  <img src="./readme/login.png" width="100%" alt="Login" />
 </p>
 
 ### `npm start`
