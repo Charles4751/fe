@@ -1,10 +1,12 @@
-# Getting Started with Create React App
+# Installation
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### `yarn i`
 
-## Available Scripts
+## Interface Display
 
-In the project directory, you can run:
+<p align="center">
+  <img src="./readme/login.png" width="200" alt="Login" />
+</p>
 
 ### `npm start`
 
