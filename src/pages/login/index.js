@@ -130,7 +130,7 @@ const Index = () => {
 
   return (
     <div className={style.container}>
-      <Title>基于Node的订餐管理系统的设计与实现</Title>
+      <Title>订餐管理系统</Title>
 
       <div className={style.form}>
         <Form 
